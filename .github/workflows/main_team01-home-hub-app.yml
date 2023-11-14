@@ -6,7 +6,7 @@ name: Build and deploy Team01 Home Hub to Azure Web App - team01-home-hub-app
 on:
   push:
     branches:
-      - main
+      - riche
   workflow_dispatch:
 
 jobs:
