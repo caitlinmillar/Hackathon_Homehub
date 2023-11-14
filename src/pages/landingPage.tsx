@@ -4,6 +4,7 @@ import Tabsbar from '../components/tabsBar';
 import houseCircle from '../assets/houseCircle.png';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Crisis from '../components/crisis';
 
 const LandingPage = () => {
     const address = `64 Zoo Lane`
@@ -33,6 +34,7 @@ const LandingPage = () => {
                 </div>
                 <Tabsbar />
             </div>
+            <br/>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <Card style={{ width: '18rem', margin: '0 10px', border: 'none', backgroundColor: 'rgb(238,246,255)' }}>
                     <Card.Body>
@@ -51,6 +53,8 @@ const LandingPage = () => {
                     </Card.Body>
                 </Card>
             </div>
+            <br/>
+            <Crisis/>
         </div>
     );
 };
