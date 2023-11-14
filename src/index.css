@@ -17,6 +17,6 @@ code {
   justify-content: center;
 }
 
-.landingWrapper {
+.landingWrapper, .crisisWrapper{
   background-color: rgb(238,246,255);
 }
