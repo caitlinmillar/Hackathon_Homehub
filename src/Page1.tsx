@@ -1,9 +1,10 @@
-import React, { HtmlHTMLAttributes, useState } from "react";
+import React, { HtmlHTMLAttributes, useState, useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { userContext } from "./context/userContext";
 
 function Page1() {
   const [password, setPassword] = useState("");
@@ -13,8 +14,9 @@ function Page1() {
   const [emailError, setemailError] = useState("");
   const [dobError, setdobError] = useState("");
 
-  const navigate = useNavigate();
+  const { user, setUser } = useContext(userContext);
 
+  const navigate = useNavigate();
 
   const handleValidation = () => {
     let formIsValid = true;
@@ -38,19 +40,23 @@ function Page1() {
       setpasswordError("");
       formIsValid = true;
     }
-    
+
     if (!password.match(/^[a-zA-Z]{8,22}$/)) {
       formIsValid = false;
-      setdobError(
-        "Dob should dd/mm/yyyy format"
-      );
+      setdobError("Dob should dd/mm/yyyy format");
       return false;
     } else {
       setdobError("");
       formIsValid = true;
     }
 
-    navigate("/home");
+   setUser({
+    firstname: email,
+    surname: password,
+    dob: dob,
+   })
+
+    navigate("/page2");
     return true;
   };
 
@@ -63,7 +69,9 @@ function Page1() {
     <Container>
       <Row className="paddingTop20">
         <Col md={3} className=""></Col>
-        <Col md={6}><h4>Homehub user login.</h4></Col>
+        <Col md={6}>
+          <h4>Homehub user login.</h4>
+        </Col>
         <Col md={3} className=""></Col>
       </Row>
       <Row>
