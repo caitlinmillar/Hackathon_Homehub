@@ -1,10 +1,10 @@
-import React, { HtmlHTMLAttributes, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { userContext } from "./context/userContext";
+import { userContext } from "../context/userContext";
 
 function Page1() {
   const [password, setPassword] = useState("");
@@ -78,7 +78,7 @@ function Page1() {
         <Col md={3} className=""></Col>
         <Col md={6} className="loginForm">
           <Form id="loginform" onSubmit={loginSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3">
               <Form.Label>Firstname</Form.Label>
               <Form.Control
                 type="text"
@@ -94,7 +94,7 @@ function Page1() {
               </small>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3">
               <Form.Label>Surname</Form.Label>
               <Form.Control
                 type="text"
@@ -108,7 +108,7 @@ function Page1() {
               {passwordError}
             </small>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3">
               <Form.Label>DOB</Form.Label>
               <Form.Control
                 type="date"
@@ -122,7 +122,7 @@ function Page1() {
               {dobError}
             </small>
 
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Group className="mb-3">
               <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
             <Button variant="primary" type="submit">
